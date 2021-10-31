@@ -40,7 +40,7 @@ namespace Client.Data
         public async Task AddAdultAsync(Adult adult)
         {
             int max = Adults.Max(adult => adult.Id);
-            adult.Id = (++max);
+            adult.Id = ++max;
             Adults.Add(adult);
 
             StringContent content =
@@ -51,21 +51,31 @@ namespace Client.Data
 
         public async Task UpdateAdultAsync(Adult adult)
         {
-            Adult update = Adults.First(t => t.Id == adult.Id);
-            update.FirstName = adult.FirstName;
-            update.LastName = adult.LastName;
-            update.HairColor = adult.HairColor;
-            update.EyeColor = adult.EyeColor;
-            update.Age = adult.Age;
-            update.Height = adult.Height;
-            update.Weight = adult.Weight;
-            update.Sex = adult.Sex;
-            update.JobTitle = adult.JobTitle;
+            // Adult update = Adults.First(t => t.Id == adult.Id);
+            // update.FirstName = adult.FirstName;
+            // update.LastName = adult.LastName;
+            // update.HairColor = adult.HairColor;
+            // update.EyeColor = adult.EyeColor;
+            // update.Age = adult.Age;
+            // update.Height = adult.Height;
+            // update.Weight = adult.Weight;
+            // update.Sex = adult.Sex;
+            // update.JobTitle = adult.JobTitle;
+            //
+            // StringContent content =
+            //     new StringContent(JsonSerializer.Serialize(Adults), Encoding.UTF8, "application/json");
+            // HttpResponseMessage response = await client.PostAsync("https://localhost:5002/Adults", content);
+            // response.EnsureSuccessStatusCode();
             
-            StringContent content =
-                new StringContent(JsonSerializer.Serialize(Adults), Encoding.UTF8, "application/json");
-            HttpResponseMessage response = await client.PostAsync("https://localhost:5002/Adults", content);
-            response.EnsureSuccessStatusCode();
+            var adultAsJson = JsonSerializer.Serialize(adult);
+            var content = new StringContent(
+                adultAsJson,
+                Encoding.UTF8,
+                "application/json"
+            );
+            var responseMessage = await client.PatchAsync("https://localhost:5002/Adults",content);
+            if(!responseMessage.IsSuccessStatusCode)
+                throw new Exception($"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
         }
 
         public async Task DeleteAdultsAsync(Adult adult)

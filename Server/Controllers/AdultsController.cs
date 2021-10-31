@@ -10,15 +10,11 @@ namespace Server.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    
+
     public class AdultsController : ControllerBase
     {
-        private IAdultData adultsData;
-
-        public AdultsController(IAdultData adultsData)
-        {
-            this.adultsData = adultsData;
-        }
+        private readonly IAdultData adultsData;
+        public AdultsController(IAdultData adultData) => this.adultsData = adultData;
 
         [HttpGet]
         public async Task<ActionResult<IList<Adult>>> GetAdults()
@@ -68,7 +64,8 @@ namespace Server.Controllers
 
         [HttpDelete]
         [Route("{id:int}")]
-        public async Task<ActionResult> DeleteAdult([FromBody] int id)
+
+        public async Task<ActionResult> DeleteAdult([FromRoute] int id)
         {
             try
             {

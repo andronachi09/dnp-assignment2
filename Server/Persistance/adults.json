@@ -1,21 +1,6 @@
 [
   {
     "JobTitle": {
-      "JobTitle": "string",
-      "Salary": 0
-    },
-    "Id": 1,
-    "FirstName": "string",
-    "LastName": "string",
-    "HairColor": "string",
-    "EyeColor": "string",
-    "Age": 0,
-    "Weight": 0,
-    "Height": 0,
-    "Sex": "string"
-  },
-  {
-    "JobTitle": {
       "JobTitle": "Business Development Manager",
       "Salary": 71456
     },
@@ -27,21 +12,6 @@
     "Age": 34,
     "Weight": 37,
     "Height": 145,
-    "Sex": "F"
-  },
-  {
-    "JobTitle": {
-      "JobTitle": "Skin Care Specialist",
-      "Salary": 20545
-    },
-    "Id": 3,
-    "FirstName": "Chaya",
-    "LastName": "Mcclure",
-    "HairColor": "Black",
-    "EyeColor": "Brown",
-    "Age": 59,
-    "Weight": 32.4,
-    "Height": 167,
     "Sex": "F"
   },
   {
@@ -238,35 +208,5 @@
     "Weight": 60,
     "Height": 164,
     "Sex": "M"
-  },
-  {
-    "JobTitle": {
-      "JobTitle": "string",
-      "Salary": 0
-    },
-    "Id": 17,
-    "FirstName": "string",
-    "LastName": "string",
-    "HairColor": "string",
-    "EyeColor": "string",
-    "Age": 0,
-    "Weight": 0,
-    "Height": 0,
-    "Sex": "string"
-  },
-  {
-    "JobTitle": {
-      "JobTitle": "string",
-      "Salary": 0
-    },
-    "Id": 18,
-    "FirstName": "string",
-    "LastName": "string",
-    "HairColor": "string",
-    "EyeColor": "string",
-    "Age": 0,
-    "Weight": 0,
-    "Height": 0,
-    "Sex": "string"
   }
 ]
